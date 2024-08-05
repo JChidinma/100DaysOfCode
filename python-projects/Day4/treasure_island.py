@@ -1,3 +1,5 @@
+# Create an ascii art game. Choose an art from here: https://ascii.co.uk/art#google_vignette
+
 print(
     """
                  .
