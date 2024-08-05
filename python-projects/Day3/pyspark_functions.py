@@ -1,8 +1,12 @@
 # Create a Dataframe manually with har coded values in PySpark
 # Use the createDataFrame() method from SparkSession object
 
-from pyspark.sql import SparkSession
 from pyspark.sql.types import *
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, lit
+<< << << < HEAD
+== == == =
+>>>>>> > Day2
 
 spark = SparkSession.builder.appName("New Spark Session").getOrCreate()
 
@@ -27,29 +31,32 @@ df_json.write.json("path/to/outputfile.json")
 
 df_parquet = spark.read.parquet("path/to/parquet_file.parquet")
 df_parquet.show()
+<< << << < HEAD
 df_json.write.json("path/to/outputfile.parquet")
+== == == =
+df_json.write.parquet("path/to/outputfile.parquet")
+>>>>>> > Day2
 
 # Renaming Columns
 df_renamed = df_csv.withColumnRenamed("old_col_name", "new_col_name")
 df_renamed.show()
 
-#Select columns
+# Select columns
 df_selected = df_csv.select("column1", "column2")
 df_selected.show()
 
-#Filter data
+# Filter data
 df_filtered = df_csv.filter(df_csv["column1"] > 100)
 df_filtered.show()
 
-#Adding new columns
-from pyspark.sql.functions import col, lit
+# Adding new columns
 
 df_new_col = df_csv.withColumn(
     "new_col_name", col("col1") + col("col2")
 )
 df_new_col.show()
 
-#Aggregations
+# Aggregations
 df_aggregated = df_new_col.groupBy("newCol_name").sum("new_col")
 df_aggregated.show()
 
