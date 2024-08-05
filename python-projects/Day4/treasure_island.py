@@ -32,7 +32,7 @@ print(
              '
     """
 )
-print("""Welcome to Treasure Island!\n
+print("""Welcome to Olympic Treasure Island!\n
 Your mission to find the treasure!\n""")
 direction = str(input("What way do you want to go? Type 'Left' or 'Right':\n"))
 water_activity = str(input("What do you want to do? \nSwim or Wait:\n"))
@@ -50,7 +50,6 @@ if direction == "left":
             print("You have been burned by fire.\nGame Over!")
         elif door == "blue":
             print("You have been eaten by a beast! \nGame Over!")
-
         elif door == "yellow":
             print("You Win!!! Here is your treasure!\n")
         else:
