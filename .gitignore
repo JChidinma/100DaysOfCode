@@ -1,0 +1,9 @@
+**/*.env
+**/__pycache__
+**/package-lock.json
+venv
+.DS_Store
+env
+.vscode
+.pyc
+**/__pycache__
