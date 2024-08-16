@@ -1,0 +1,23 @@
+############################# Designing the app classes and  before building ####################################
+Title: Flatmates Bill Split App
+Project Description: An `app` that gets the `amount` of a `bill` for a particular `period`, the number of `days` each `flatmate` stayed in the `house` for that period as an inputs. 
+
+Then, return how much each flatmate has to pay. It also generates a `PDF report` stating the `names` of the flatmates, the `period`, and how much each of them paid.
+
+*** Important** The words in backticks can be used to make up the objects out of the nouns in the description. Amount is an attribute of the bill.
+
+Objects:
+- Bill is a noun:
+    - amount is an attribute of the bill
+    - period sounds like a part of bill that describes the time of bill payment
+
+- Flatmate is a noun with the following attributes:
+    - name of the flat mate
+    - days_in_house represents whenflatmate stayed in the house
+    - amount_paid (we should have period stayed, amount so bill shoulbe part of this)
+
+- PdfReport is a noun:
+    - the file should have a name (filename)
+    - generate: the pdf needs to be generated and these are needed to be in the report (names_of_flatmate, bill(period, amount))
+
+################################ Writing the Empty Classes ######################################
