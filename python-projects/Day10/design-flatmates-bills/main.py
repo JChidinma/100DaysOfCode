@@ -1,6 +1,5 @@
 from flat import Bill, Flatmate
-from report import PdfReport
-from try_filestack import FileSharer
+from report import PdfReport, FileSharer
 
 
 amount = float(input("How much is your flat's total bill in $:\n"))
@@ -25,5 +24,5 @@ print(f"{flatmate2} pays: ", flatmate2.amount_paid(bill, flatmate1))
 pdf_report = PdfReport(filename=f"{period}_bill.pdf")
 pdf_report.generate(flatmate1, flatmate2, bill)
 
-file_sharer = FileSharer(filepath=pdf_report.filename)
-print(file_sharer.share())
+# file_sharer = FileSharer(filepath=pdf_report.filename)
+# print(file_sharer.share())

@@ -1,6 +1,7 @@
 import webbrowser
 from fpdf import FPDF
 import os
+from filestack import Client
 
 
 class PdfReport:
@@ -35,7 +36,26 @@ class PdfReport:
         pdf.cell(w=100, h=25, txt=flatmate1.name, border=0)
         pdf.cell(w=150, h=25, txt=flatmate1_pay, border=0, ln=1)
 
+        pdf.set_font(family='Times', size=12)
+        pdf.cell(w=100, h=25, txt=flatmate2.name, border=0)
+        pdf.cell(w=150, h=25, txt=flatmate2_pay, border=0, ln=1)
+
+        pdf.set_font(family='Times', size=12)
+        pdf.cell(w=100, h=25, txt="Total Bill", border=0)
+        pdf.cell(w=150, h=25, txt=f"${bill.amount:.2f}", border=0, ln=1)
+
         # pdf.output("flatmate_bill_report.pdf")
         os.chdir("files")
         pdf.output(self.filename)
         webbrowser.open(self.filename)
+
+
+class FileSharer:
+    def __init__(self, filepath, api_key="Axfjkafu34kf"):
+        self.filepath = filepath
+        self.api_key = api_key
+
+    def share(self):
+        client = Client(self.api_key)
+        new_filelink = client.upload(filepath=self.filepath)
+        return new_filelink.url
