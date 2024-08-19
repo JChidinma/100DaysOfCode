@@ -1,0 +1,8 @@
+Design an Interactive Tic-Tac-Toe Game in Python
+Objective:
+Build a two-player (X and O) tic-tac-toe game that allows users to take turns placing their symbols on a 3x3 grid.
+
+Board Class:
+There will be methods for : 1. display_board 2. place a marker 3. check winner 4. check if it is a draw 5. check if a position in the board is free to place a marker
+
+Game Class: - play game - switch player
