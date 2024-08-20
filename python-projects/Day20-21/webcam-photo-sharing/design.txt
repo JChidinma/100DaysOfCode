@@ -1,0 +1,19 @@
+Designing the Frontend
+    - Title: WebCam Photo Sharer
+    - Description: 
+        - An application that starts the computer's `webcam`,
+        - Let's the user capture a Photo
+        - Uploads the photo to the web and 
+        - Creates a sharable link
+
+Objects:
+
+    Webcam
+        - Start
+        - Stop
+        - Capture
+
+    File/Photo Sharing
+        - filepath
+        - api 
+        - share()
