@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 from filesharer import FileSharer
+import time
 
 Builder.load_file('frontend.kv')
 
@@ -10,21 +11,33 @@ Builder.load_file('frontend.kv')
 
 class CameraScreen(Screen):
     def start(self):
+        """Starts the camera and changes the Camera Button text"""
         self.ids.camera.play = True
         self.ids.camera_button.text = "Stop Camera"
         self.ids.camera.texture = self.ids.camera._camera.texture
 
     def stop(self):
+        """Stops the camera and changes the Camera Button text"""
         self.ids.camera.play = False
         self.ids.camera_button.text = "Start Camera"
         self.ids.camera.texture = None
 
     def capture(self):
-        pass
+        """Creates a filename with the current time and captures and saves a photo image in the filepath"""
+        current_time = time.strftime('%Y%m%d-%H%M%S')
+        self.filepath = f"images/{current_time}.png"
+        self.ids.camera.export_to_png(self.filepath)
+
+        self.manager.current = 'image_screen'
+        self.manager.current_screen.ids.img.source = self.filepath
 
 
 class ImageScreen(Screen):
-    pass
+    """Take the current saved phot and upload it to the web and share the link under the `Share the link` button"""
+
+    def create_link(self):
+        link_file_path = App.get_running_app().root.ids.camera_screen.file_path
+        print(filepath)
 
 
 class RootWidget(ScreenManager):
