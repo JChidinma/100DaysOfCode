@@ -36,8 +36,11 @@ class ImageScreen(Screen):
     """Take the current saved phot and upload it to the web and share the link under the `Share the link` button"""
 
     def create_link(self):
-        link_file_path = App.get_running_app().root.ids.camera_screen.file_path
-        print(filepath)
+        file_path = App.get_running_app().root.ids.camera_screen.filepath
+        fileshare = FileSharer(filepath=file_path)
+        url = fileshare.share()
+        self.ids.link.text = url
+        print(file_path)
 
 
 class RootWidget(ScreenManager):

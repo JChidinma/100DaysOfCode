@@ -47,7 +47,7 @@ class Board:
             [0, 3, 6], [1, 4, 7], [2, 5, 8],  # columns
             [0, 4, 8], [2, 4, 6]
         ]
-        return any(all(self.board[i] == marker for i in combo) for combo in win_combinations)
+        # # return any(all(self.board[i] == marker for i in combo) for combo in win_combinations)
 
     def is_draw(self):
         return " " not in self.board

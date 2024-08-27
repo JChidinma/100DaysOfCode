@@ -1,6 +1,6 @@
 # Create a class called QuizBrain
 # Write an __init__() method
-# Initialize teh question_number to 0
+# Initialize the question_number to 0
 # Initialize the question_list to an input
 class QuizBrain:
     def __init__(self, question_list):
@@ -24,6 +24,6 @@ class QuizBrain:
             print("Correct!")
         else:
             print("You got it wrong.")
-        print(f"The corect answer is {correct_answer}.")
+        print(f"The correct answer is {correct_answer}.")
         print(f"Your current score is {self.score}/{self.question_number}.")
         print("\n")
