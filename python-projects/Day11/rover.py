@@ -43,3 +43,31 @@ rover = Rover(0, 0, 'N')
 commands = "MMRMMRMRRM"
 rover.execute_commands(commands)
 print(rover.get_position())
+
+
+class Rover:
+    pass
+
+    def __init_(self, x, y, position):
+        pass
+
+    def move_left(self):
+        pass
+
+    def move_right(self):
+        pass
+
+    def move_forward(self):
+        pass
+
+    def get_position(self):
+        pass
+
+    def execute_commands(self, commands):
+        pass
+
+
+def run_rover():
+    rover = Rover(0, 0, 'N')
+    commands = turtle.textInput("Mars Rover", "Enter command L, R M")
+    pass

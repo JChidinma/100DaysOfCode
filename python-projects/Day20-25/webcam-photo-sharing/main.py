@@ -1,8 +1,11 @@
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
+from kivy.core.clipboard import Clipboard
 from filesharer import FileSharer
+
 import time
+import webbrowser
 
 Builder.load_file('frontend.kv')
 
@@ -33,11 +36,33 @@ class CameraScreen(Screen):
 
 
 class ImageScreen(Screen):
-    """Take the current saved phot and upload it to the web and share the link under the `Share the link` button"""
+    """Takes the current saved photo and upload it to the web and share the link under the `Share the link` button"""
+    link_message = "Create a link first"
 
     def create_link(self):
-        link_file_path = App.get_running_app().root.ids.camera_screen.file_path
-        print(filepath)
+        """
+        Creates a sharable link of th current photo taken
+        """
+        file_path = App.get_running_app().root.ids.camera_screen.filepath
+        fileshare = FileSharer(filepath=file_path)
+        self.url = fileshare.share()
+        self.ids.link.text = self.url
+        # print(file_path)
+
+    def copy_link(self):
+        """Copy available photo link to clipboard and ready for pasting"""
+        try:
+            Clipboard.copy(self.url)
+        except:
+            # print(f"Create a link first to continue!")
+            self.ids.link.text = self.link_message
+
+    def open_link(self):
+        """Opens link with default browser """
+        try:
+            webbrowser.open(self.url)
+        except:
+            self.ids.link.text = self.link_message
 
 
 class RootWidget(ScreenManager):

@@ -5,4 +5,4 @@ class Question:
 
 
 new_question = Question("How do you say orange in Igbo?", "Oroma or Epe")
-print(new_question)
+# print(new_question)
