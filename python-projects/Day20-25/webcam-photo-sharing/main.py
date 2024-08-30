@@ -45,8 +45,8 @@ class ImageScreen(Screen):
         """
         Creates a sharable link of th current photo taken
         """
-        file_path = App.get_running_app().root.ids.camera_screen.filepath
-        fileshare = FileSharer(filepath=file_path)
+        link_file_path = App.get_running_app().root.ids.camera_screen.filepath
+        fileshare = FileSharer(filepath=link_file_path)
         self.url = fileshare.share()
         self.ids.link.text = self.url
         # print(file_path)
