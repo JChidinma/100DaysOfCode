@@ -17,3 +17,5 @@ Objects:
         - filepath
         - api 
         - share()
+
+Sample image captured with sharable link: https://cdn.filestackcontent.com/k7DnSphvQlihsfVIhpFX

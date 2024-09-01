@@ -15,12 +15,14 @@ Builder.load_file('frontend.kv')
 class CameraScreen(Screen):
     def start(self):
         """Starts the camera and changes the Camera Button text"""
+        self.ids.camera.opacity = 1
         self.ids.camera.play = True
         self.ids.camera_button.text = "Stop Camera"
         self.ids.camera.texture = self.ids.camera._camera.texture
 
     def stop(self):
         """Stops the camera and changes the Camera Button text"""
+        self.ids.camera.opacity = 0
         self.ids.camera.play = False
         self.ids.camera_button.text = "Start Camera"
         self.ids.camera.texture = None
@@ -43,8 +45,8 @@ class ImageScreen(Screen):
         """
         Creates a sharable link of th current photo taken
         """
-        file_path = App.get_running_app().root.ids.camera_screen.filepath
-        fileshare = FileSharer(filepath=file_path)
+        link_file_path = App.get_running_app().root.ids.camera_screen.filepath
+        fileshare = FileSharer(filepath=link_file_path)
         self.url = fileshare.share()
         self.ids.link.text = self.url
         # print(file_path)
