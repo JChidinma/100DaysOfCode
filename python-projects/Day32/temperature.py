@@ -1,3 +1,8 @@
+from selectorlib import Extractor
+import requests
+import os
+
+
 class Temperature:
     """
     Represents a temperature value extracted from the timeanddate.com/weather webpage.
@@ -16,9 +21,17 @@ class Temperature:
     base_url = 'https://www.timeanddate.com/weather/'
     yml_path = 'temperature.yaml'
 
+    # def __init__(self, country, city):
+    #     self.country = country.replace(" ", "-")
+    #     self.city = city.replace(" ", "-")
+
     def __init__(self, country, city):
         self.country = country.replace(" ", "-")
         self.city = city.replace(" ", "-")
+        # Get the directory of the current file
+        script_dir = os.path.dirname(__file__)
+        # Use the absolute path to temperature.yaml
+        self.yml_path = os.path.join(script_dir, 'temperature.yaml')
 
     def _build_url(self):
         """Builds the url string adding county and city"""
@@ -34,12 +47,22 @@ class Temperature:
         raw_content = extractor.extract(full_content)
         return raw_content
 
+    # def get(self):
+    #     """Cleans the output of _scrape"""
+    #     scraped_content = self._scrape()
+    #     return float(scraped_content['temp'].replace("°C", "").strip())
+
     def get(self):
         """Cleans the output of _scrape"""
         scraped_content = self._scrape()
-        return float(scraped_content['temp'].replace("C", "").strip())
+        if not scraped_content or 'temp' not in scraped_content:
+            return "Temperature data not found."
+        try:
+            return float(scraped_content['temp'].replace("°C", "").strip())
+        except (ValueError, AttributeError):
+            return "Invalid temperature data."
 
 
 if __name__ == "__main__":
-    temperature = Temperature(country="Canada", city="Winnipeg")
+    temperature = Temperature(country="Canada", city="Calgary")
     print(temperature.get())

@@ -1,3 +1,6 @@
+from temperature import Temperature
+
+
 class CalorieCalc:
     """
     Represents the amount of calories calculated with BMR = 10*weight + 6.25*height - 5*age + 5 - 1*temperature
@@ -9,13 +12,14 @@ class CalorieCalc:
         self.age = age
         self.temperature = temperature
 
-
-def calculate(self):
-    result = 10 * self.weight + 6.25 * self.height + 5 - self.temperature * 10
-    return result
+    def calculate(self):
+        self.temperature = float(self.temperature)
+        result = 10 * self.weight + 6.25 * self.height + 5 - self.temperature * 10
+        return result
 
 
 if __name__ == "__main__":
     temperature = Temperature(country='Canada', city='Calgary').get()
-    calorie = Calorie(temperature=temperature, weight=70, height=175, age=32)
+    calorie = CalorieCalc(temperature=temperature,
+                          weight=70, height=175, age=32)
     print(calorie.calculate())
