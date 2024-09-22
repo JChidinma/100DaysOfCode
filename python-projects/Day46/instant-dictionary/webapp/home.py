@@ -1,12 +1,17 @@
 import justpy as jp
+from webapp import layout
 
 
 class Home:
     path = "/"
 
-    def serve(self):
+    @classmethod
+    def serve(cls, req):
         wp = jp.QuasarPage(tailwind=True)
-        div = jp.Div(a=wp, classes="bg-gray-200  h-screen")
+        lay = layout.DefaultLayout(a=wp)
+        container = jp.QPageContainer(a=lay)
+
+        div = jp.Div(a=container, classes="bg-gray-200  h-screen p-2")
         jp.Div(a=div, text="This is the Home Page!", classes="text-4xl m-2")
         jp.Div(a=div, text="""
         This home page has an interesting Quasar story. While I develop the story, go for a walk or a run or sip a cup of tea.
@@ -15,7 +20,3 @@ class Home:
         Come back later for the story.
         """, classes="text-lg")
         return wp
-
-
-# jp.Route(Home.path, Home.serve)
-# jp.juspy(port=8001)
