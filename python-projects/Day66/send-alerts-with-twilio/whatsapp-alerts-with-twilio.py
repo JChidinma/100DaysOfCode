@@ -50,6 +50,6 @@ if will_rain or will_snow:
         .create(
             body=message_body,
             from_="whatsapp:+14155238886",
-            to="whatsapp:+14038031777"
+            to="whatsapp:+1403*******"
         )
     print(f"Message sent: {message.status}")
