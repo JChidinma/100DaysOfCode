@@ -1,16 +1,19 @@
+import os
+import sys
 import requests
 from datetime import datetime
 
-GENDER = GENDER
-WEIGHT_KG = WEIGHT
-HEIGHT_CM = HEIGHT
-AGE = AGE
+GENDER = "Female"
+WEIGHT_KG = float(76)
+HEIGHT_CM = float(167)
+AGE = int(39)
 
-APP_ID = NUTRITIONIX_APP_ID
-API_KEY = NUTRITIONIX_API_KEY
+APP_ID = os.environ['NUTRITIONIX_APP_ID']
+API_KEY = os.environ["NUTRITIONIX_API_KEY"]
+# Authorization: Basic Sm95Y2VkZXY6R2lnNGV2YTpzaA ==
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
-sheet_endpoint = SHEETY_ENDPOINT
+sheet_endpoint = os.environ["SHEETY_ENDPOINT"]
 
 exercise_text = input("Tell me which exercises you did: ")
 
