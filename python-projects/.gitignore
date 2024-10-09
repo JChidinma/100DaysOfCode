@@ -1,0 +1,35 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore environment or virtual environment folders
+env/
+venv/
+
+# Ignore log files
+*.log
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled files and folders
+*.o
+*.so
+*.out
+
+# Ignore IDE and editor specific files
+.vscode/
+.idea/
+
+# Ignore node_modules in case you are using Node.js
+node_modules/
+
+# Ignore all the files in the 'build' directory
+build/
+
+# Ignore sensitive files (e.g., API keys or credentials)
+.env
