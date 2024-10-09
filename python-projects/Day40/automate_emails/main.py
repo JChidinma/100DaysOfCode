@@ -24,12 +24,5 @@ for index, row in df.iterrows():
         to=row['email'],
         subject=f"Your {row['interest']} news report for today!",
         contents=f"Hi {row['name']},\nSee what's up about {row['interest']} today. \n\n{news_feed.get()} \n\nRegards,\nJoyce"
-        # attachments="100DaysOfCode/python-projects/Day40/automate_emails/design.txt"
     )
-    # email.send(
-    #     to="dichidiadi@gmail.com",
-    #     subject="Mummy is Testing Her Code",
-    #     contents="I am testing a code that gets stories and news of your interest and sends you an email. \n\nRegards,\nJoyce",
-    #     attachments="100DaysOfCode/python-projects/Day40/automate_emails/design.txt"
-    # )
-# print(df)
+
