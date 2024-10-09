@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 VIRTUAL_TWILIO_NUMBER = "whatsapp:+14155238886"
-VERIFIED_NUMBER = "whatsapp:+14038031777"
+VERIFIED_NUMBER = "whatsapp:+1**********"
 
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -87,7 +87,7 @@ if abs(diff_percent) > 1:
             .create(
                 body=article,
                 from_="whatsapp:+14155238886",
-                to="whatsapp:+14038031777"
+                to="whatsapp:+1403*******"
             )
     # print(f"Message sent: {message.status}")
     #     message = client.messages.create(
